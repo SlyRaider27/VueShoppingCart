@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Off Canvas Template for Bootstrap</title>
+    <title>Welcome to Croft Munitions</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -17,7 +16,7 @@
   <body>
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Welcome to Croft Munitions</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -25,76 +24,117 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
             </div>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
     </nav>
 
-    <main role="main" class="container">
+    <main  id="app" role="main" class="container">
+      <div id="accordion" role="tablist">
+            <div class="card collapse">
+              <div class="card-header" role="tab" id="headingOne">
+                <h5 class="mb-0">
+                  <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size: 2em;">
+                    Shopping Cart
+                  </a>
+                </h5>
+              </div>
 
+              <div id="collapseOne" class="collapse hide" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Subtotal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>{{}}</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
       <div class="row row-offcanvas row-offcanvas-right">
 
         <div class="col-12 col-md-9">
           <p class="float-right d-md-none">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
           </p>
-          <div class="jumbotron">
+          <div class="jumbotron" style="">
             <h1>Croft Munitions</h1>
-            <p>Welcome to our store. Your one stop shop for all your Tomb Raiding needs.</p>
+            <p>Welcome to our store. Your one stop shop for all your tomb raiding needs.</p>
           </div>
           <div class="row">
-            <div class="col-6 col-lg-4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <div v-for="item in items" v-if="item.ordered >= 0"class="col-6 col-lg-4" style="padding=10px">
+              <h2>{{item.name}}</h2>
+              <img v-bind:src = "item.imgSrc" v-on:click="itemName(item.name)">
+              <p>{{item.description}}</p>
+              <p>{{item.price}}</p>
+              <button class="btn btn-secondary" v-on:click="orderThis(item)">Order</button>
             </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
 
-        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <h4>Shopping Cart</h4>
-          </div>
         </div><!--/span-->
       </div><!--/row-->
 
       <hr>
 
     </main><!--/.container-->
+    <script src="https://unpkg.com/vue"></script>
+<div >
+   <p v-if="cartItem > 0">Items in Cart: {{cartItem}}</p>
+   <p>Selected Item: {{itemSelected}}</p>
+   <div v-for="item in items" v-if="item.ordered >= 0">
+       <p>{{item.name}}</p>
+       <img v-bind:src = "item.imgSrc" v-on:click="itemName(item.name)">
+       <button v-on:click="deletThis(item)">Remove Item {{item.name}}</button>
+       <p v-if="item.ordered > 0">{{item.ordered}}</p>
+       <hr>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            cartItem: 0,
+            itemSelected: "None yet!",
+            items:
+            [
+                {name: 'Uzi', ordered:0, imgSrc:'uzis.jpg', description:"Each shot is only slightly stronger than the Pistols, but it shoots much faster. Ammo tends to be rare, greatly decreasing its usefulness.", price:125.00},
+                {name: 'Shotty', ordered:0, imgSrc:'shotgun.jpg', description:"It is typically a short-ranged firearm that fires either a spread of small pellets (shot) or a single, large bullet (slug).", price:250.00},
+                {name: 'Classic Pistols', ordered:0, imgSrc:'pistols.jpg', description:"The Pistols are Lara's standard weapons and reliable companions. Lara has unlimited ammo for these and will always carry two of them.", price:450.00}
+            ]
+        },
+        methods: {
+            itemName(theName){
+                this.itemSelected = theName;
+            },
+            orderThis(itemObject){
+                itemObject.ordered++;
+                this.cartItem++;
+            },
+            deleteThis(item){
+                item.ordered--;
+                this.cartItem--;
+            }
+        }
+    });
+</script>
 
     <footer>
-      <p>&copy; Company 2017</p>
+      <p>&copy; Croft Enterprises 2017</p>
     </footer>
 
 
@@ -102,9 +142,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="offcanvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   </body>
 </html>

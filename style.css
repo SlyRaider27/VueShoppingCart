@@ -12,7 +12,9 @@ body {
 footer {
   padding: 30px 0;
 }
-
+.jumbotron {
+  background-image: url(jumbobackground.jpg);
+}
 /*
  * Off Canvas
  * --------------------------------------------------
